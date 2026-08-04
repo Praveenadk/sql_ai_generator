@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+
+  ai-sql-generator:
+
+    build: .
+
+    container_name: ai-sql-generator
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+    restart: unless-stopped
